@@ -1,0 +1,20 @@
+{{ template "header" . }}
+
+<h1>Aplicar</h1>
+
+{{ template "nav-main" }}
+
+{{ if .Nome }}
+Seu nome é {{ .Nome }}
+{{ end }}
+
+<form action="/aplicar" method="POST" >
+  
+  <label for="nome">Nome</label>
+  <input type="text" name="nome" id="nome" />
+
+  <input type="submit" />
+
+</form>
+
+{{ template "footer" }}
