@@ -1,0 +1,36 @@
+body {
+    background-color: #DAF7A6 ;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    padding:  0.5em;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    text-align: right;
+}
+
+
+main {
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+main > .update {
+    padding:  0.5em;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    margin-bottom: 1em;
+}
+
+#update-form {
+    text-align: right;
+}
+
+#update-form textarea {
+    width: 100%;
+    margin-bottom: 1em;
+    resize: vertical;
+}
+

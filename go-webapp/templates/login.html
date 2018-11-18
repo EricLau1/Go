@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/icon-1.png" />
+
+    <link rel="stylesheet" href="static/css/error.css">
+</head>
+<body>
+
+    <a href="/cadastro"> criar conta </a>
+
+    <h1>Entrar</h1>
+
+    {{ if . }}
+        <div class="error">{{ . }}</div>
+    {{ end }}
+    <form method="post">
+        
+        <label for="username">Username: </label>
+        <input type="text" name="username" >
+        
+        <br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" >
+
+        <br>
+        <button type="submit">Logar</button>
+    
+    </form>
+    
+</body>
+</html>
