@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Home</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table th, tr, td {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/"> Home </a></li>
+                <li><a href="/signup"> Criar Conta </a></li>
+                <li><a href="/signin"> Login </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr />
+    <h1> Página inicial </h1>
+    <h5>USERS</h5>
+    <table>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Password</td>
+        {{ range .Users }}
+        <tr>
+            <td> {{ .Id }} </td>
+            <td> {{ .Name }} </td>
+            <td> {{ .Password }} </td>
+        </tr>
+        {{ end }}
+    </table>
+</body>
+</html>
