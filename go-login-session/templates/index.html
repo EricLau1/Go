@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Golang Home </title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li> <a href="/">Home</a> </li>
+                <li> <a href="/signup">Criar conta</a> </li>
+                <li> <a href="/signin">Login</a> </li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr />
+
+    <h1> Página inicial </h1>
+
+    <h2>Usuários</h2>
+    <div class="table-index">
+        <table>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            {{ range .Users }}
+            <tr>
+                <td>{{ .Id }}</td>
+                <td>{{ .Username }}</td>
+                <td>{{ .Password }}</td>
+            </tr>
+            {{ end }}
+        </table>
+    </div>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

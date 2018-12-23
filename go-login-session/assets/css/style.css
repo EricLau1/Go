@@ -1,0 +1,9 @@
+.table-index table {
+    border-collapse: collapse;
+}
+
+.table-index table, .table-index th, .table-index tr, .table-index td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
