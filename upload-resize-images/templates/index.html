@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title> Go uploading images</title>
+  </head>
+  <body>
+    <h1>Uploading Images</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+      <input type="file" name="image" id="image" />
+      <button type="submit">upload</button>
+    </form>
+    <hr />
+    {{ range .Images }}
+      <img src="data:image;base64, {{ . }}" />
+    {{ end }}
+  </body>
+</html>
