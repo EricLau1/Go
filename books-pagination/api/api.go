@@ -11,6 +11,7 @@ import (
 func Run() {
   db := models.Connect()
   defer db.Close()
+  db.DropTableIfExists(&models.Book{})
   if !db.HasTable(&models.Book{}) {
     db.Debug().CreateTable(&models.Book{})
   }
