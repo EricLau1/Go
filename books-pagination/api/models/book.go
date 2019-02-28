@@ -47,10 +47,10 @@ func DeleteBook(id uint64) (int64, error) {
   return rs.RowsAffected, rs.Error
 }
 
-func CountBooks() int64 {
+func CountBooks() int {
   db := Connect()
   defer db.Close()
-  var count int64
+  var count int
   db.Model(&Book{}).Count(&count)
   return count
 }

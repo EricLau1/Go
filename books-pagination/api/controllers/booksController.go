@@ -1,6 +1,7 @@
 package controllers
 
 import (
+  "fmt"
   "net/http"
   "strconv"
   "encoding/json"
@@ -10,23 +11,27 @@ import (
 )
 
 func GetBooks(w http.ResponseWriter, r *http.Request) {
-  limit := 10
   total := models.CountBooks()
+  fmt.Println("Total:", total)
+  limit := 5
   page, begin := utils.Pagination(r, limit)
+  pages := (total / limit)
+  if (total % limit) != 0 {
+    pages++
+  }
+  fmt.Printf("Current Page: %d, Begin: %d\n", page, begin)
   books := models.PaginateBooks(begin, limit)
-  pages := (total / int64(limit)) + (total % int64(limit))
   utils.ToJson(w, struct{
-    Docs  []models.Book `json:"docs"`
-    Limit int           `json:"limit"`
-    Page  int           `json:"page"`
-    Pages int64         `json:"pages"`
+    Docs []models.Book `json:"docs"`
+    Total int `json:"total"`
+    Page int `json:"page"`
+    Pages int `json:"pages"`
   }{
     Docs: books,
-    Limit: limit,
+    Total: total,
     Page: page,
     Pages: pages,
-  }, 
-  http.StatusOK)
+  }, http.StatusOK)
 }
 
 func GetBook(w http.ResponseWriter, r *http.Request) {

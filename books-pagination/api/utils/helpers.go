@@ -3,9 +3,9 @@ package utils
 import (
   "net/http"
   "log"
-  "strconv"
   "encoding/json"
   "io/ioutil"
+  "strconv"
 )
 
 func BodyParser(r *http.Request) []byte {
@@ -28,9 +28,13 @@ func CheckError(err error) {
 
 func Pagination(r *http.Request, limit int) (int, int) {
   keys := r.URL.Query()
-  if keys.Get("page") == "" || keys.Get("page") == "0" {
+  if keys.Get("page") == "" {
     return 1, 0
   }
   page, _ := strconv.Atoi(keys.Get("page"))
-  return page, ((limit * page) - limit)
+  if page < 1 {
+    return 1, 0
+  }
+  begin := (limit * page) - limit
+  return page, begin
 }
