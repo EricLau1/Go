@@ -1,0 +1,3 @@
+package: go-mongodb
+import:
+- package: gopkg.in/mgo.v2
