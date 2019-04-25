@@ -1,6 +1,12 @@
-Vars:
+Env:
 
     export GO111MODULE=on
+
+Run:
+
+    go mod init
+
+    go build
 
 Docker commands:
 
