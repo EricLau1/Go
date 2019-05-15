@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build: ./app
+    ports: 
+      - 9000:9000
+    depends_on:
+     - db
+    restart: on-failure
+    environment:
+     - DATABASE_HOST=db
+    volumes:
+     - ./app:/app
+  db:
+    build: ./db
