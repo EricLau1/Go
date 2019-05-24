@@ -1,0 +1,10 @@
+syntax="proto3";
+package main;
+
+message Product {
+    string description = 1;
+    double price = 2;
+    uint32 quantity = 4;
+    bool status = 3; 
+}
+
